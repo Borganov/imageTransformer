@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.labelSelect = new System.Windows.Forms.Label();
             this.buttonSelectImage = new System.Windows.Forms.Button();
             this.labelApplyFilter = new System.Windows.Forms.Label();
@@ -44,17 +44,17 @@
             this.radioButtonKirsh = new System.Windows.Forms.RadioButton();
             this.labelEdgeDetectionMessage = new System.Windows.Forms.Label();
             this.labelSaveMessage = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pictureBox
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(670, 673);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pictureBox.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(670, 673);
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
             // 
             // labelSelect
             // 
@@ -66,7 +66,6 @@
             this.labelSelect.Size = new System.Drawing.Size(165, 24);
             this.labelSelect.TabIndex = 1;
             this.labelSelect.Text = "1. Select a picture";
-            this.labelSelect.Click += new System.EventHandler(this.label1_Click);
             // 
             // buttonSelectImage
             // 
@@ -81,7 +80,7 @@
             this.buttonSelectImage.TabIndex = 2;
             this.buttonSelectImage.Text = "Browse";
             this.buttonSelectImage.UseVisualStyleBackColor = false;
-            this.buttonSelectImage.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSelectImage.Click += new System.EventHandler(this.button_click_Browse);
             // 
             // labelApplyFilter
             // 
@@ -93,7 +92,6 @@
             this.labelApplyFilter.Size = new System.Drawing.Size(137, 24);
             this.labelApplyFilter.TabIndex = 5;
             this.labelApplyFilter.Text = "2. Apply filters";
-            this.labelApplyFilter.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // labelApplyDetection
             // 
@@ -105,7 +103,6 @@
             this.labelApplyDetection.Size = new System.Drawing.Size(214, 24);
             this.labelApplyDetection.TabIndex = 6;
             this.labelApplyDetection.Text = "3. Apply edge detection";
-            this.labelApplyDetection.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // labelSave
             // 
@@ -128,7 +125,6 @@
             this.labelSelectResult.Size = new System.Drawing.Size(174, 15);
             this.labelSelectResult.TabIndex = 8;
             this.labelSelectResult.Text = "Image selected successfuly !";
-            this.labelSelectResult.Click += new System.EventHandler(this.label1_Click_3);
             // 
             // checkBoxRainbow
             // 
@@ -188,7 +184,7 @@
             this.buttonSave.TabIndex = 13;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
-            this.buttonSave.Click += new System.EventHandler(this.button1_Click_1);
+            this.buttonSave.Click += new System.EventHandler(this.button_click_Save);
             // 
             // radioButtonPrewitt
             // 
@@ -236,7 +232,7 @@
             this.labelSaveMessage.TabIndex = 17;
             this.labelSaveMessage.Text = "Save worked !";
             // 
-            // Form1
+            // ImageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -256,10 +252,10 @@
             this.Controls.Add(this.labelApplyFilter);
             this.Controls.Add(this.buttonSelectImage);
             this.Controls.Add(this.labelSelect);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
+            this.Controls.Add(this.pictureBox);
+            this.Name = "ImageForm";
             this.Text = "Image Transformer";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,7 +264,7 @@
         #endregion
 
         //Section picture
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox;
 
         //Section 1
         private System.Windows.Forms.Label labelSelect; 

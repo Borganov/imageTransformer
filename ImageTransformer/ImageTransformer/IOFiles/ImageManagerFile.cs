@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ImageTransformer.IOFiles
 {
-    class ImageManagerFile : IInputOutput
+    public class ImageManagerFile : IInputOutput
     {
         public Bitmap getImage()
         {
@@ -42,12 +42,13 @@ namespace ImageTransformer.IOFiles
                 {
                     string fileExtension = Path.GetExtension(sfd.FileName).ToUpper();
                     ImageFormat imgFormat = null;
+                    Console.WriteLine(fileExtension);
                     switch (fileExtension)
                     {
-                        case "PNG":
+                        case ".PNG":
                             imgFormat = ImageFormat.Png;
                             break;
-                        case "JPG":
+                        case ".JPG":
                             imgFormat = ImageFormat.Jpeg;
                             break;
                     }
@@ -60,7 +61,6 @@ namespace ImageTransformer.IOFiles
                 }
 
             }
-
 
         }
 

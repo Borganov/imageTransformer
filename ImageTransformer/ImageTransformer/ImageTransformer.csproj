@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\EdgeDetectionBLL.cs" />
+    <Compile Include="Business\FilterBLL.cs" />
+    <Compile Include="Business\Matrix.cs" />
+    <Compile Include="IOFiles\ImageManagerFile.cs" />
+    <Compile Include="IOFiles\IInputOutput.cs" />
     <Compile Include="Presentation\ImageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,9 +84,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Business\" />
-    <Folder Include="IOFiles\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
