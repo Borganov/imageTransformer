@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Business\EdgeDetectionBLL.cs" />
     <Compile Include="Business\FilterBLL.cs" />
+    <Compile Include="Business\GetAndSaveImage.cs" />
     <Compile Include="Business\Matrix.cs" />
     <Compile Include="IOFiles\ImageManagerFile.cs" />
     <Compile Include="IOFiles\IInputOutput.cs" />
