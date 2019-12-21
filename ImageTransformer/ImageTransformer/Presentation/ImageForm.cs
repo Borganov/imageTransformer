@@ -27,6 +27,7 @@ namespace ImageTransformer
             pictureBox.Image = imf.getImage();
 
             //Center image into picutrebox
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
         }
 
