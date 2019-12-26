@@ -33,9 +33,9 @@ namespace ImageTransformer.Business
         //Rainbow Filter
         public static Bitmap RainbowFilter(Bitmap bmp)
         {
-
+               
             Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
-            int raz = bmp.Width / 4;
+            int raz = bmp.Width / 6;
             for (int i = 0; i < bmp.Width; i++)
             {
                 for (int x = 0; x < bmp.Height; x++)
