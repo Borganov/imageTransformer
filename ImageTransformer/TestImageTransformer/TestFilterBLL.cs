@@ -18,10 +18,8 @@ namespace TestImageTransformer
         [TestMethod]
         public void TestSwap()
         {
-            var ImageManagerFile = Substitute.For<ImageTransformer.IOFiles.IInputOutput>();
 
-            Bitmap ToTest = ImageManagerFile.getImage();
-            ToTest = FilterBLL.Swap(TestImage);
+            Bitmap ToTest = FilterBLL.Swap(TestImage);
 
             byte[] TestImageInBytes = (byte[]) imageConverter.ConvertTo(ToTest, typeof(byte[]));
             

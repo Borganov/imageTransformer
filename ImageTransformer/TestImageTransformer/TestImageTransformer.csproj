@@ -64,6 +64,7 @@
     <Compile Include="TestEdgeDetectionBLL.cs" />
     <Compile Include="TestFilterBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestGetAndSaveImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
