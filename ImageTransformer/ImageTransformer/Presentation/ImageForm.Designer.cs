@@ -30,7 +30,6 @@ namespace ImageTransformer
         /// </summary>
         private void InitializeComponent()
         {
-            this.originalBox = new System.Windows.Forms.PictureBox();
             this.labelSelect = new System.Windows.Forms.Label();
             this.buttonSelectImage = new System.Windows.Forms.Button();
             this.labelApplyFilter = new System.Windows.Forms.Label();
@@ -43,12 +42,14 @@ namespace ImageTransformer
             this.radioButtonPrewitt = new System.Windows.Forms.RadioButton();
             this.radioButtonKirsh = new System.Windows.Forms.RadioButton();
             this.previewBox = new System.Windows.Forms.PictureBox();
+            this.originalBox = new System.Windows.Forms.PictureBox();
             this.labelOriginalPicture = new System.Windows.Forms.Label();
             this.labelPreviewImage = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.originalBox)).BeginInit();
+            this.radioButtonNone = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalBox)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // originalBox
             // 
             this.originalBox.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -57,6 +58,8 @@ namespace ImageTransformer
             this.originalBox.Size = new System.Drawing.Size(700, 350);
             this.originalBox.TabIndex = 0;
             this.originalBox.TabStop = false;
+
+
             // 
             // labelSelect
             // 
@@ -173,19 +176,20 @@ namespace ImageTransformer
             // 
             this.radioButtonPrewitt.AutoSize = true;
             this.radioButtonPrewitt.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonPrewitt.Location = new System.Drawing.Point(764, 310);
+            this.radioButtonPrewitt.Location = new System.Drawing.Point(761, 322);
             this.radioButtonPrewitt.Name = "radioButtonPrewitt";
             this.radioButtonPrewitt.Size = new System.Drawing.Size(65, 19);
             this.radioButtonPrewitt.TabIndex = 14;
             this.radioButtonPrewitt.TabStop = true;
             this.radioButtonPrewitt.Text = "Prewitt";
             this.radioButtonPrewitt.UseVisualStyleBackColor = true;
+            this.radioButtonPrewitt.CheckedChanged += new System.EventHandler(this.radioButtonPrewitt_CheckedChanged);
             // 
             // radioButtonKirsh
             // 
             this.radioButtonKirsh.AutoSize = true;
             this.radioButtonKirsh.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonKirsh.Location = new System.Drawing.Point(870, 310);
+            this.radioButtonKirsh.Location = new System.Drawing.Point(761, 347);
             this.radioButtonKirsh.Name = "radioButtonKirsh";
             this.radioButtonKirsh.Size = new System.Drawing.Size(61, 19);
             this.radioButtonKirsh.TabIndex = 15;
@@ -225,11 +229,25 @@ namespace ImageTransformer
             this.labelPreviewImage.TabIndex = 20;
             this.labelPreviewImage.Text = "Preview picture";
             // 
+            // radioButtonNone
+            // 
+            this.radioButtonNone.AutoSize = true;
+            this.radioButtonNone.Font = new System.Drawing.Font("Roboto", 9.75F);
+            this.radioButtonNone.Location = new System.Drawing.Point(761, 299);
+            this.radioButtonNone.Name = "radioButtonNone";
+            this.radioButtonNone.Size = new System.Drawing.Size(55, 19);
+            this.radioButtonNone.TabIndex = 21;
+            this.radioButtonNone.TabStop = true;
+            this.radioButtonNone.Text = "None";
+            this.radioButtonNone.UseVisualStyleBackColor = true;
+            this.radioButtonNone.CheckedChanged += new System.EventHandler(this.radioButtonNone_CheckedChanged);
+            // 
             // ImageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 789);
+            this.Controls.Add(this.radioButtonNone);
             this.Controls.Add(this.labelPreviewImage);
             this.Controls.Add(this.labelOriginalPicture);
             this.Controls.Add(this.previewBox);
@@ -247,8 +265,8 @@ namespace ImageTransformer
             this.Controls.Add(this.originalBox);
             this.Name = "ImageForm";
             this.Text = "Image Transformer";
-            ((System.ComponentModel.ISupportInitialize)(this.originalBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.originalBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,9 +274,9 @@ namespace ImageTransformer
 
 
         #endregion
-
         //Section picture
         private System.Windows.Forms.PictureBox originalBox;
+        private System.Windows.Forms.PictureBox previewBox;
 
         //Section 1
         private System.Windows.Forms.Label labelSelect; 
@@ -274,14 +292,15 @@ namespace ImageTransformer
         private System.Windows.Forms.Label labelApplyDetection;
         private System.Windows.Forms.RadioButton radioButtonPrewitt;
         private System.Windows.Forms.RadioButton radioButtonKirsh;
+        private System.Windows.Forms.RadioButton radioButtonNone;
 
 
         //Section 4
         private System.Windows.Forms.Label labelSave;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.PictureBox previewBox;
         private System.Windows.Forms.Label labelOriginalPicture;
         private System.Windows.Forms.Label labelPreviewImage;
+
     }
 }
 

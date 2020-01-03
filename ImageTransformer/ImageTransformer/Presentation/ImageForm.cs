@@ -143,14 +143,34 @@ namespace ImageTransformer
         //SECTION 3 (SELECT EDGE DETECTION)
         private void radioButtonKirsh_CheckedChanged(object sender, EventArgs e)
         {
+            applyEdgeDetection();
+        }
+
+        private void radioButtonPrewitt_CheckedChanged(object sender, EventArgs e)
+        {
+            applyEdgeDetection();
+        }
+
+        private void radioButtonNone_CheckedChanged(object sender, EventArgs e)
+        {
+            applyEdgeDetection();
+        }
+
+        private void applyEdgeDetection()
+        {
             if (radioButtonKirsh.Checked)
             {
                 resultBitmap = EdgeDetectionBLL.KirschFilter(previewBitmap);
                 previewBox.Image = resultBitmap;
             }
-            else
+            else if (radioButtonPrewitt.Checked)
             {
                 resultBitmap = EdgeDetectionBLL.PrewittFilter(previewBitmap);
+                previewBox.Image = resultBitmap;
+            }
+            else
+            {
+                resultBitmap = previewBitmap;
                 previewBox.Image = resultBitmap;
             }
             adjustSizePictureBox();
@@ -166,14 +186,18 @@ namespace ImageTransformer
         //CROSS SECTION METHOD
         private void adjustSizePictureBox() 
         {
-            var imageSize = previewBox.Image.Size;
-            var fitSize = previewBox.ClientSize;
-            previewBox.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?
-                PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
+            if(previewBox != null && previewBox.Image != null)
+            {
+                var imageSize = previewBox.Image.Size;
+                var fitSize = previewBox.ClientSize;
+                previewBox.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?
+                    PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
 
-            //Center image into originalBox
-            originalBox.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?
-                PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
+                //Center image into originalBox
+                originalBox.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?
+                    PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
+            }
+
         }
 
         // if no image has been selected, disable section 2, 3 and 4
@@ -203,14 +227,18 @@ namespace ImageTransformer
             {
                 radioButtonKirsh.Enabled = true;
                 radioButtonPrewitt.Enabled = true;
+                radioButtonNone.Enabled = true;
+                radioButtonNone.Checked = true;
             }
             else
             {
                 radioButtonKirsh.Checked = false;
                 radioButtonPrewitt.Checked = false;
-
+                radioButtonNone.Checked = true;
+                
                 radioButtonKirsh.Enabled = false;
                 radioButtonPrewitt.Enabled = false;
+                radioButtonNone.Enabled = false;
 
                 
             }
