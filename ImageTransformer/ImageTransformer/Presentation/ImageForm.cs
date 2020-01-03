@@ -46,7 +46,7 @@ namespace ImageTransformer
             originalBox.Image = originalBitmap;
             previewBox.Image = originalBitmap;
 
-            checkBoxBlackWhite.Checked = false;
+            checkBoxSwapDivide.Checked = false;
             checkBoxRainbow.Checked = false;
             checkBoxSwap.Checked = false;
 
@@ -62,7 +62,7 @@ namespace ImageTransformer
         //SECTION 2 (SELECT FILTER)
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            int cbBW = checkBoxBlackWhite.Checked ? 1 : 0;
+            int cbBW = checkBoxSwapDivide.Checked ? 1 : 0;
             int cbR = checkBoxRainbow.Checked ? 1 : 0;
             int cbS = checkBoxSwap.Checked ? 1 : 0;
 
@@ -81,8 +81,8 @@ namespace ImageTransformer
             switch (toCheck)
             {
                 case "100":
-                    //Only BlackWhite
-                    previewBitmap = FilterBLL.BlackWhite(previewBitmap);
+                    //Only Swap Divide
+                    previewBitmap = FilterBLL.SwapDivide(previewBitmap,1,1,2,1);
                     previewBox.Image = previewBitmap;
                     break;
 
@@ -100,14 +100,14 @@ namespace ImageTransformer
 
                 case "110":
                     //BlackWhite then Rainbow
-                    previewBitmap = FilterBLL.BlackWhite(previewBitmap);
+                    previewBitmap = FilterBLL.SwapDivide(previewBitmap, 1, 1, 2, 1);
                     previewBitmap = FilterBLL.RainbowFilter(previewBitmap);
                     previewBox.Image = previewBitmap;
                     break;
 
                 case "101":
                     //BlackWhite then Swap
-                    previewBitmap = FilterBLL.BlackWhite(previewBitmap);
+                    previewBitmap = FilterBLL.SwapDivide(previewBitmap, 1, 1, 2, 1);
                     previewBitmap = FilterBLL.Swap(previewBitmap);
                     previewBox.Image = previewBitmap;
                     break;
@@ -119,7 +119,7 @@ namespace ImageTransformer
                     break;
 
                 case "111":
-                    previewBitmap = FilterBLL.BlackWhite(previewBitmap);
+                    previewBitmap = FilterBLL.SwapDivide(previewBitmap, 1, 1, 2, 1);
                     previewBitmap = FilterBLL.RainbowFilter(previewBitmap);
                     previewBitmap = FilterBLL.Swap(previewBitmap);
                     previewBox.Image = previewBitmap;
@@ -181,17 +181,17 @@ namespace ImageTransformer
         {
                 if(condition)
                 {
-                    checkBoxBlackWhite.Enabled = true;
+                    checkBoxSwapDivide.Enabled = true;
                     checkBoxRainbow.Enabled = true;
                     checkBoxSwap.Enabled = true;
                 }
                 else
                 {
-                    checkBoxBlackWhite.Checked = false;
+                    checkBoxSwapDivide.Checked = false;
                     checkBoxRainbow.Checked = false;
                     checkBoxSwap.Checked = false;
 
-                    checkBoxBlackWhite.Enabled = false;
+                    checkBoxSwapDivide.Enabled = false;
                     checkBoxRainbow.Enabled = false;
                     checkBoxSwap.Enabled = false;
                 }

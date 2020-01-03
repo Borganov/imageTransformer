@@ -37,7 +37,7 @@ namespace ImageTransformer
             this.labelApplyDetection = new System.Windows.Forms.Label();
             this.labelSave = new System.Windows.Forms.Label();
             this.checkBoxRainbow = new System.Windows.Forms.CheckBox();
-            this.checkBoxBlackWhite = new System.Windows.Forms.CheckBox();
+            this.checkBoxSwapDivide = new System.Windows.Forms.CheckBox();
             this.checkBoxSwap = new System.Windows.Forms.CheckBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.radioButtonPrewitt = new System.Windows.Forms.RadioButton();
@@ -122,7 +122,7 @@ namespace ImageTransformer
             this.checkBoxRainbow.AutoSize = true;
             this.checkBoxRainbow.Font = new System.Drawing.Font("Roboto", 10F);
             this.checkBoxRainbow.ForeColor = System.Drawing.Color.Black;
-            this.checkBoxRainbow.Location = new System.Drawing.Point(764, 173);
+            this.checkBoxRainbow.Location = new System.Drawing.Point(764, 199);
             this.checkBoxRainbow.Name = "checkBoxRainbow";
             this.checkBoxRainbow.Size = new System.Drawing.Size(82, 21);
             this.checkBoxRainbow.TabIndex = 9;
@@ -130,17 +130,17 @@ namespace ImageTransformer
             this.checkBoxRainbow.UseVisualStyleBackColor = true;
             this.checkBoxRainbow.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
-            // checkBoxBlackWhite
+            // checkBoxSwapDivide
             // 
-            this.checkBoxBlackWhite.AutoSize = true;
-            this.checkBoxBlackWhite.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxBlackWhite.Location = new System.Drawing.Point(764, 200);
-            this.checkBoxBlackWhite.Name = "checkBoxBlackWhite";
-            this.checkBoxBlackWhite.Size = new System.Drawing.Size(119, 19);
-            this.checkBoxBlackWhite.TabIndex = 10;
-            this.checkBoxBlackWhite.Text = "Black And White";
-            this.checkBoxBlackWhite.UseVisualStyleBackColor = true;
-            this.checkBoxBlackWhite.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
+            this.checkBoxSwapDivide.AutoSize = true;
+            this.checkBoxSwapDivide.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxSwapDivide.Location = new System.Drawing.Point(764, 173);
+            this.checkBoxSwapDivide.Name = "checkBoxSwapDivide";
+            this.checkBoxSwapDivide.Size = new System.Drawing.Size(96, 19);
+            this.checkBoxSwapDivide.TabIndex = 10;
+            this.checkBoxSwapDivide.Text = "Swap Divide";
+            this.checkBoxSwapDivide.UseVisualStyleBackColor = true;
+            this.checkBoxSwapDivide.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // checkBoxSwap
             // 
@@ -237,7 +237,7 @@ namespace ImageTransformer
             this.Controls.Add(this.radioButtonPrewitt);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.checkBoxSwap);
-            this.Controls.Add(this.checkBoxBlackWhite);
+            this.Controls.Add(this.checkBoxSwapDivide);
             this.Controls.Add(this.checkBoxRainbow);
             this.Controls.Add(this.labelSave);
             this.Controls.Add(this.labelApplyDetection);
@@ -267,7 +267,7 @@ namespace ImageTransformer
         //Section 2
         private System.Windows.Forms.Label labelApplyFilter;
         private System.Windows.Forms.CheckBox checkBoxRainbow;
-        private System.Windows.Forms.CheckBox checkBoxBlackWhite;
+        private System.Windows.Forms.CheckBox checkBoxSwapDivide;
         private System.Windows.Forms.CheckBox checkBoxSwap;
 
         //Section 3

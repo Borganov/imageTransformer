@@ -67,21 +67,26 @@ namespace ImageTransformer.Business
             return temp;
         }
 
-        //black and white filter
-        public static Bitmap BlackWhite(Bitmap Bmp)
+
+
+        //SwapDivide filter
+        public static Bitmap SwapDivide(Bitmap bmp, int a, int r, int g, int b)
         {
-            int rgb;
-            Color c;
 
-            for (int y = 0; y < Bmp.Height; y++)
-                for (int x = 0; x < Bmp.Width; x++)
+            Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
+
+
+            for (int i = 0; i < bmp.Width; i++)
+            {
+                for (int x = 0; x < bmp.Height; x++)
                 {
-                    c = Bmp.GetPixel(x, y);
-                    rgb = (int)((c.R + c.G + c.B) / 3);
-                    Bmp.SetPixel(x, y, Color.FromArgb(rgb, rgb, rgb));
+                    Color c = bmp.GetPixel(i, x);
+                    Color cLayer = Color.FromArgb(c.A / a, c.G / g, c.B / b, c.R / r);
+                    temp.SetPixel(i, x, cLayer);
                 }
-            return Bmp;
 
+            }
+            return temp;
         }
 
 
