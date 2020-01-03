@@ -62,12 +62,21 @@ namespace ImageTransformer
         //SECTION 2 (SELECT FILTER)
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
-
             int cbBW = checkBoxBlackWhite.Checked ? 1 : 0;
             int cbR = checkBoxRainbow.Checked ? 1 : 0;
             int cbS = checkBoxSwap.Checked ? 1 : 0;
 
             String toCheck = String.Concat(cbBW, cbR, cbS);
+            if (toCheck == "000")
+            {
+                showSections3(false);
+                showSections4(false);
+            }
+            else
+            {
+                showSections3(true);
+                showSections4(true);
+            }
 
             switch (toCheck)
             {
@@ -116,29 +125,19 @@ namespace ImageTransformer
                     previewBox.Image = previewBitmap;
                     break;
 
-                default :
+                default:
 
                     previewBox.Refresh();
                     previewBitmap = test;
                     previewBox.Image = test;
-                    
+
                     break;
 
             }
 
-            if(toCheck == "000")
-            {
-                showSections3(false);
-                showSections4(false);
-            }else
-            {
-                showSections3(true);
-                showSections4(true);
-            }
 
             resultBitmap = previewBitmap;
             adjustSizePictureBox();
-
         }
 
         //SECTION 3 (SELECT EDGE DETECTION)
@@ -212,6 +211,8 @@ namespace ImageTransformer
 
                 radioButtonKirsh.Enabled = false;
                 radioButtonPrewitt.Enabled = false;
+
+                
             }
         }
 
