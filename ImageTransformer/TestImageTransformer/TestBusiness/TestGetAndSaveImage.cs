@@ -1,4 +1,5 @@
 ﻿using ImageTransformer.Business;
+using ImageTransformer.IOFiles;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
 using System;
@@ -25,7 +26,8 @@ namespace TestImageTransformer
             var iInputOutput = Substitute.For<ImageTransformer.IOFiles.IInputOutput>();
             iInputOutput.getImage().Returns<Bitmap>(TestImage);
 
-           // Bitmap test = gasi.getImage();
+            
+           Bitmap test = gasi.getImage(iInputOutput);
 
             byte[] testImageInBytes = (byte[])imageConverter.ConvertTo(TestImage, typeof(byte[]));
 

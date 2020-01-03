@@ -10,19 +10,19 @@ namespace ImageTransformer.Business
 {
     public class GetAndSaveImage
     {
-        private ImageManagerFile imf;
+        
 
-        public Bitmap getImage()
+        public Bitmap getImage(IInputOutput iio)
         {
-            imf = new ImageManagerFile();
-            return imf.getImage();
+
+            return iio.getImage();
         }
 
 
-        public void saveImage(Bitmap img)
+        public void saveImage(Bitmap img, IInputOutput iio)
         {
-            imf = new ImageManagerFile();
-            imf.saveImage(img);
+            iio = new ImageManagerFile();
+            iio.saveImage(img);
         }
     }
 }

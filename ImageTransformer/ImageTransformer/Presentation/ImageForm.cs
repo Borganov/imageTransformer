@@ -32,8 +32,9 @@ namespace ImageTransformer
         //SECTION 1 (BROWSE IMAGE)
         private void button_click_Browse(object sender, EventArgs e)
         {
+            ImageManagerFile imf = new ImageManagerFile();
             //Browse image and set picture box with result
-            originalBitmap = gsi.getImage();
+            originalBitmap = gsi.getImage(imf);
 
             //If cancel selection halt method
             if(originalBitmap == null)
@@ -180,7 +181,8 @@ namespace ImageTransformer
 
         private void button_click_Save(object sender, EventArgs e)
         {
-            gsi.saveImage(resultBitmap);
+            ImageManagerFile imf = new ImageManagerFile();
+            gsi.saveImage(resultBitmap,imf);
         }
 
         //CROSS SECTION METHOD
