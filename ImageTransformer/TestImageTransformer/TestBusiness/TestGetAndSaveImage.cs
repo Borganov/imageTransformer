@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ImageTransformer.Business;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
@@ -18,10 +19,13 @@ namespace TestImageTransformer
         [TestMethod]
         public void TestgetImage()
         {
+            GetAndSaveImage gasi = new GetAndSaveImage();
             ImageConverter imageConverter = new ImageConverter();
-            var ImageManagerFile = Substitute.For<ImageTransformer.IOFiles.IInputOutput>();
 
-            ImageManagerFile.getImage().Returns<Bitmap>(TestImage);
+            var IInputOutput = Substitute.For<ImageTransformer.IOFiles.IInputOutput>();
+            IInputOutput.getImage().Returns<Bitmap>(TestImage);
+
+           // Bitmap test = gasi.getImage();
 
             byte[] TestImageInBytes = (byte[])imageConverter.ConvertTo(TestImage, typeof(byte[]));
 

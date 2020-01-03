@@ -18,6 +18,7 @@ namespace ImageTransformer.Business
             return imf.getImage();
         }
 
+
         public void saveImage(Bitmap img)
         {
             imf = new ImageManagerFile();

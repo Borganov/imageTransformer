@@ -36,16 +36,12 @@ namespace ImageTransformer
             this.labelApplyFilter = new System.Windows.Forms.Label();
             this.labelApplyDetection = new System.Windows.Forms.Label();
             this.labelSave = new System.Windows.Forms.Label();
-            this.labelSelectResult = new System.Windows.Forms.Label();
             this.checkBoxRainbow = new System.Windows.Forms.CheckBox();
             this.checkBoxBlackWhite = new System.Windows.Forms.CheckBox();
             this.checkBoxSwap = new System.Windows.Forms.CheckBox();
-            this.labelFilterMessage = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
             this.radioButtonPrewitt = new System.Windows.Forms.RadioButton();
             this.radioButtonKirsh = new System.Windows.Forms.RadioButton();
-            this.labelEdgeDetectionMessage = new System.Windows.Forms.Label();
-            this.labelSaveMessage = new System.Windows.Forms.Label();
             this.previewBox = new System.Windows.Forms.PictureBox();
             this.labelOriginalPicture = new System.Windows.Forms.Label();
             this.labelPreviewImage = new System.Windows.Forms.Label();
@@ -121,17 +117,6 @@ namespace ImageTransformer
             this.labelSave.TabIndex = 7;
             this.labelSave.Text = "4. Save your work";
             // 
-            // labelSelectResult
-            // 
-            this.labelSelectResult.AutoSize = true;
-            this.labelSelectResult.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSelectResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labelSelectResult.Location = new System.Drawing.Point(761, 105);
-            this.labelSelectResult.Name = "labelSelectResult";
-            this.labelSelectResult.Size = new System.Drawing.Size(174, 15);
-            this.labelSelectResult.TabIndex = 8;
-            this.labelSelectResult.Text = "Image selected successfuly !";
-            // 
             // checkBoxRainbow
             // 
             this.checkBoxRainbow.AutoSize = true;
@@ -168,17 +153,6 @@ namespace ImageTransformer
             this.checkBoxSwap.Text = "Swap";
             this.checkBoxSwap.UseVisualStyleBackColor = true;
             this.checkBoxSwap.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
-            // 
-            // labelFilterMessage
-            // 
-            this.labelFilterMessage.AutoSize = true;
-            this.labelFilterMessage.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFilterMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labelFilterMessage.Location = new System.Drawing.Point(761, 251);
-            this.labelFilterMessage.Name = "labelFilterMessage";
-            this.labelFilterMessage.Size = new System.Drawing.Size(85, 15);
-            this.labelFilterMessage.TabIndex = 12;
-            this.labelFilterMessage.Text = "Filter applied !";
             // 
             // buttonSave
             // 
@@ -220,28 +194,6 @@ namespace ImageTransformer
             this.radioButtonKirsh.UseVisualStyleBackColor = true;
             this.radioButtonKirsh.CheckedChanged += new System.EventHandler(this.radioButtonKirsh_CheckedChanged);
             // 
-            // labelEdgeDetectionMessage
-            // 
-            this.labelEdgeDetectionMessage.AutoSize = true;
-            this.labelEdgeDetectionMessage.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEdgeDetectionMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labelEdgeDetectionMessage.Location = new System.Drawing.Point(761, 339);
-            this.labelEdgeDetectionMessage.Name = "labelEdgeDetectionMessage";
-            this.labelEdgeDetectionMessage.Size = new System.Drawing.Size(141, 15);
-            this.labelEdgeDetectionMessage.TabIndex = 16;
-            this.labelEdgeDetectionMessage.Text = "Edge detection applied !";
-            // 
-            // labelSaveMessage
-            // 
-            this.labelSaveMessage.AutoSize = true;
-            this.labelSaveMessage.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSaveMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labelSaveMessage.Location = new System.Drawing.Point(761, 441);
-            this.labelSaveMessage.Name = "labelSaveMessage";
-            this.labelSaveMessage.Size = new System.Drawing.Size(86, 15);
-            this.labelSaveMessage.TabIndex = 17;
-            this.labelSaveMessage.Text = "Save worked !";
-            // 
             // previewBox
             // 
             this.previewBox.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -281,16 +233,12 @@ namespace ImageTransformer
             this.Controls.Add(this.labelPreviewImage);
             this.Controls.Add(this.labelOriginalPicture);
             this.Controls.Add(this.previewBox);
-            this.Controls.Add(this.labelSaveMessage);
-            this.Controls.Add(this.labelEdgeDetectionMessage);
             this.Controls.Add(this.radioButtonKirsh);
             this.Controls.Add(this.radioButtonPrewitt);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.labelFilterMessage);
             this.Controls.Add(this.checkBoxSwap);
             this.Controls.Add(this.checkBoxBlackWhite);
             this.Controls.Add(this.checkBoxRainbow);
-            this.Controls.Add(this.labelSelectResult);
             this.Controls.Add(this.labelSave);
             this.Controls.Add(this.labelApplyDetection);
             this.Controls.Add(this.labelApplyFilter);
@@ -314,7 +262,6 @@ namespace ImageTransformer
 
         //Section 1
         private System.Windows.Forms.Label labelSelect; 
-        private System.Windows.Forms.Label labelSelectResult;
         private System.Windows.Forms.Button buttonSelectImage;
 
         //Section 2
@@ -322,18 +269,15 @@ namespace ImageTransformer
         private System.Windows.Forms.CheckBox checkBoxRainbow;
         private System.Windows.Forms.CheckBox checkBoxBlackWhite;
         private System.Windows.Forms.CheckBox checkBoxSwap;
-        private System.Windows.Forms.Label labelFilterMessage;
 
         //Section 3
         private System.Windows.Forms.Label labelApplyDetection;
         private System.Windows.Forms.RadioButton radioButtonPrewitt;
         private System.Windows.Forms.RadioButton radioButtonKirsh;
-        private System.Windows.Forms.Label labelEdgeDetectionMessage;
 
 
         //Section 4
         private System.Windows.Forms.Label labelSave;
-        private System.Windows.Forms.Label labelSaveMessage;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.PictureBox previewBox;
         private System.Windows.Forms.Label labelOriginalPicture;

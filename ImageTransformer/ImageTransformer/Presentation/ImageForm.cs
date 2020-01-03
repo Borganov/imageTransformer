@@ -18,11 +18,15 @@ namespace ImageTransformer
         private Bitmap originalBitmap = null;
         private Bitmap previewBitmap = null;
         private Bitmap resultBitmap = null;
+        private Bitmap test = null;
 
         public ImageForm()
         {
             gsi = new GetAndSaveImage();
             InitializeComponent();
+            showSections2(false);
+            showSections3(false);
+            showSections4(false);
         }
 
         //SECTION 1 (BROWSE IMAGE)
@@ -30,7 +34,14 @@ namespace ImageTransformer
         {
             //Browse image and set picture box with result
             originalBitmap = gsi.getImage();
+
+            //If cancel selection halt method
+            if(originalBitmap == null)
+            {
+                return;
+            }
             previewBitmap = originalBitmap;
+            test = originalBitmap;
 
             originalBox.Image = originalBitmap;
             previewBox.Image = originalBitmap;
@@ -43,6 +54,8 @@ namespace ImageTransformer
             radioButtonPrewitt.Checked = false;
 
             adjustSizePictureBox();
+            showSections2(true);
+            
         }
 
 
@@ -55,7 +68,7 @@ namespace ImageTransformer
             int cbS = checkBoxSwap.Checked ? 1 : 0;
 
             String toCheck = String.Concat(cbBW, cbR, cbS);
-            
+
             switch (toCheck)
             {
                 case "100":
@@ -104,11 +117,23 @@ namespace ImageTransformer
                     break;
 
                 default :
-                    Console.WriteLine(toCheck);
-                    previewBitmap = originalBitmap;
-                    previewBox.Image = originalBitmap;
+
+                    previewBox.Refresh();
+                    previewBitmap = test;
+                    previewBox.Image = test;
+                    
                     break;
 
+            }
+
+            if(toCheck == "000")
+            {
+                showSections3(false);
+                showSections4(false);
+            }else
+            {
+                showSections3(true);
+                showSections4(true);
             }
 
             resultBitmap = previewBitmap;
@@ -134,8 +159,6 @@ namespace ImageTransformer
 
         //SECTION 4 (SAVE IMAGE)
 
-        //SECTION 5 (SAVE IMAGE)
-
         private void button_click_Save(object sender, EventArgs e)
         {
             gsi.saveImage(resultBitmap);
@@ -153,6 +176,58 @@ namespace ImageTransformer
             originalBox.SizeMode = imageSize.Width > fitSize.Width || imageSize.Height > fitSize.Height ?
                 PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
         }
+
+        // if no image has been selected, disable section 2, 3 and 4
+        public void showSections2(Boolean condition)
+        {
+                if(condition)
+                {
+                    checkBoxBlackWhite.Enabled = true;
+                    checkBoxRainbow.Enabled = true;
+                    checkBoxSwap.Enabled = true;
+                }
+                else
+                {
+                    checkBoxBlackWhite.Checked = false;
+                    checkBoxRainbow.Checked = false;
+                    checkBoxSwap.Checked = false;
+
+                    checkBoxBlackWhite.Enabled = false;
+                    checkBoxRainbow.Enabled = false;
+                    checkBoxSwap.Enabled = false;
+                }
+        }
+
+        public void showSections3(Boolean condition)
+        {
+            if (condition)
+            {
+                radioButtonKirsh.Enabled = true;
+                radioButtonPrewitt.Enabled = true;
+            }
+            else
+            {
+                radioButtonKirsh.Checked = false;
+                radioButtonPrewitt.Checked = false;
+
+                radioButtonKirsh.Enabled = false;
+                radioButtonPrewitt.Enabled = false;
+            }
+        }
+
+        public void showSections4(Boolean condition)
+        {
+            if (condition)
+            {
+                buttonSave.Enabled = true;
+            }
+            else
+            {
+                buttonSave.Enabled = false;
+
+            }
+        }
+
 
     }
 }
