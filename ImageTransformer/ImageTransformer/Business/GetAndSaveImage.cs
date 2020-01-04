@@ -21,7 +21,7 @@ namespace ImageTransformer.Business
 
         public void saveImage(Bitmap img, IInputOutput iio)
         {
-            iio = new ImageManagerFile();
+
             iio.saveImage(img);
         }
     }

@@ -15,6 +15,7 @@ namespace TestImageTransformer
     [TestClass]
      public class TestGetAndSaveImage
     {
+        //Image for test
         Bitmap TestImage = new Bitmap(Path.Combine(Environment.CurrentDirectory, @"ImagesForTests\", "octocat.png"));
 
         [TestMethod]
@@ -27,7 +28,7 @@ namespace TestImageTransformer
             iInputOutput.getImage().Returns<Bitmap>(TestImage);
 
             
-           Bitmap test = gasi.getImage(iInputOutput);
+            Bitmap test = gasi.getImage(iInputOutput);
 
             byte[] testImageInBytes = (byte[])imageConverter.ConvertTo(TestImage, typeof(byte[]));
 
@@ -39,10 +40,14 @@ namespace TestImageTransformer
         [TestMethod]
         public void TestsaveImage()
         {
-            var imageManagerFile = Substitute.For<ImageTransformer.IOFiles.IInputOutput>();
-            imageManagerFile.saveImage(TestImage);
+            var iInputOutput = Substitute.For<ImageTransformer.IOFiles.IInputOutput>();
+            var saved = false;
+            GetAndSaveImage gasi = new GetAndSaveImage();
 
-            Assert.AreEqual(1, 1);
+            iInputOutput.When(h => h.saveImage(Arg.Any<Bitmap>())).Do(x => saved = true);
+
+            gasi.saveImage(TestImage, iInputOutput);
+            Assert.IsTrue(true);
         }
     }
 }

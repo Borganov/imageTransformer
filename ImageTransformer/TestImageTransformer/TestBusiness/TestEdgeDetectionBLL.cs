@@ -13,6 +13,7 @@ namespace TestImageTransformer
     [TestClass]
     public class TestEdgeDetectionBLL
     {
+        //Image for test
         Bitmap testImage = new Bitmap(Path.Combine(Environment.CurrentDirectory, @"ImagesForTests\", "octocat.png"));
 
         [TestMethod]

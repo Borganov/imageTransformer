@@ -32,8 +32,8 @@ namespace ImageTransformer
         //SECTION 1 (BROWSE IMAGE)
         private void button_click_Browse(object sender, EventArgs e)
         {
-            ImageManagerFile imf = new ImageManagerFile();
             //Browse image and set picture box with result
+            ImageManagerFile imf = new ImageManagerFile();
             originalBitmap = gsi.getImage(imf);
 
             //If cancel selection halt method
@@ -41,6 +41,7 @@ namespace ImageTransformer
             {
                 return;
             }
+
             previewBitmap = originalBitmap;
             test = originalBitmap;
 
@@ -181,6 +182,7 @@ namespace ImageTransformer
 
         private void button_click_Save(object sender, EventArgs e)
         {
+            //Save image
             ImageManagerFile imf = new ImageManagerFile();
             gsi.saveImage(resultBitmap,imf);
         }

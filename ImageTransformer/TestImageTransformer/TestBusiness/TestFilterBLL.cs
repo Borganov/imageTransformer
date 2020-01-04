@@ -12,6 +12,7 @@ namespace TestImageTransformer
     [TestClass]
     public class TestFilterBLL
     {
+        //Image for test
         Bitmap testImage = new Bitmap(Path.Combine(Environment.CurrentDirectory, @"ImagesForTests\", "octocat.png"));
         ImageConverter imageConverter = new ImageConverter();
 
