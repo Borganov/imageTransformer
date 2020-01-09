@@ -18,7 +18,6 @@ namespace ImageTransformer
         private Bitmap originalBitmap = null;
         private Bitmap previewBitmap = null;
         private Bitmap resultBitmap = null;
-        private Bitmap test = null;
 
         public ImageForm()
         {
@@ -42,12 +41,14 @@ namespace ImageTransformer
                 return;
             }
 
+            
             previewBitmap = originalBitmap;
-            test = originalBitmap;
 
+            //Set Image into the two boxes
             originalBox.Image = originalBitmap;
             previewBox.Image = originalBitmap;
 
+            //Disable checkbox and radiobutton
             checkBoxSwapDivide.Checked = false;
             checkBoxRainbow.Checked = false;
             checkBoxSwap.Checked = false;
@@ -64,11 +65,15 @@ namespace ImageTransformer
         //SECTION 2 (SELECT FILTER)
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
+            //Get value of checkboxes
             int cbBW = checkBoxSwapDivide.Checked ? 1 : 0;
             int cbR = checkBoxRainbow.Checked ? 1 : 0;
             int cbS = checkBoxSwap.Checked ? 1 : 0;
 
+            //Create a string with it
             String toCheck = String.Concat(cbBW, cbR, cbS);
+
+            //Control that one or more check box is selected otherwise disable radiobutton and save button
             if (toCheck == "000")
             {
                 showSections3(false);
@@ -80,6 +85,7 @@ namespace ImageTransformer
                 showSections4(true);
             }
 
+            //Depends on witch checkbox is selected, apply filters
             switch (toCheck)
             {
                 case "100":
@@ -101,20 +107,21 @@ namespace ImageTransformer
                     break;
 
                 case "110":
-                    //BlackWhite then Rainbow
+                    //SwapDivide then Rainbow
                     previewBitmap = FilterBLL.SwapDivide(previewBitmap, 1, 1, 2, 1);
                     previewBitmap = FilterBLL.RainbowFilter(previewBitmap);
                     previewBox.Image = previewBitmap;
                     break;
 
                 case "101":
-                    //BlackWhite then Swap
+                    //SwapDivide then Swap
                     previewBitmap = FilterBLL.SwapDivide(previewBitmap, 1, 1, 2, 1);
                     previewBitmap = FilterBLL.Swap(previewBitmap);
                     previewBox.Image = previewBitmap;
                     break;
 
                 case "011":
+                    //Rainbow then Swap
                     previewBitmap = FilterBLL.RainbowFilter(previewBitmap);
                     previewBitmap = FilterBLL.Swap(previewBitmap);
                     previewBox.Image = previewBitmap;
@@ -130,8 +137,8 @@ namespace ImageTransformer
                 default:
 
                     previewBox.Refresh();
-                    previewBitmap = test;
-                    previewBox.Image = test;
+                    previewBitmap = originalBitmap;
+                    previewBox.Image = originalBitmap;
 
                     break;
 
@@ -158,6 +165,7 @@ namespace ImageTransformer
             applyEdgeDetection();
         }
 
+        //Apply edge detection depends on witch radiobutton is selected
         private void applyEdgeDetection()
         {
             if (radioButtonKirsh.Checked)
@@ -179,7 +187,6 @@ namespace ImageTransformer
         }
 
         //SECTION 4 (SAVE IMAGE)
-
         private void button_click_Save(object sender, EventArgs e)
         {
             //Save image
@@ -204,7 +211,7 @@ namespace ImageTransformer
 
         }
 
-        // if no image has been selected, disable section 2, 3 and 4
+        // Disable section 2 (Filter selection)
         public void showSections2(Boolean condition)
         {
                 if(condition)
@@ -225,6 +232,7 @@ namespace ImageTransformer
                 }
         }
 
+        // Disable section 3 (Edge Detection selection)
         public void showSections3(Boolean condition)
         {
             if (condition)
@@ -248,6 +256,7 @@ namespace ImageTransformer
             }
         }
 
+        //Disable or enable save button
         public void showSections4(Boolean condition)
         {
             if (condition)
