@@ -23,7 +23,8 @@ namespace ImageTransformer.Business
             try
             {
                 iio.saveImage(img);
-            }catch(Exception e)
+            }
+            catch(Exception e)
             {
                 throw;
             }

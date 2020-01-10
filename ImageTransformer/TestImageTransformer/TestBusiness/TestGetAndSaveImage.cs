@@ -46,7 +46,24 @@ namespace TestImageTransformer
             //Use the interface in the method to test
             gasi.saveImage(testImage, iInputOutput);
             //Compare if true
-            Assert.IsTrue(true);
+            Assert.IsTrue(saved);
         }
-    }
+        [TestMethod]
+        public void TestsaveImageException()
+        {
+            var iInputOutput = Substitute.For<ImageTransformer.IOFiles.IInputOutput>();
+            var exception = true;
+            iInputOutput.When(h => h.saveImage(Arg.Any<Bitmap>())).Do(x => throw new Exception());
+
+            try
+            {
+                gasi.saveImage(testImage, iInputOutput);
+            }
+            catch
+            {
+                exception = true;                
+            }
+            Assert.IsTrue(exception);
+        }
+     }
 }
