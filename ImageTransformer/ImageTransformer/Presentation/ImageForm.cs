@@ -84,47 +84,47 @@ namespace ImageTransformer
             {
                 case "100":
                     //Only Swap Divide
-                    previewBitmap = FilterBLL.SwapDivide(previewBitmap,1,1,2,1);
+                    previewBitmap = Filter.SwapDivide(previewBitmap,1,1,2,1);
                     previewBox.Image = previewBitmap;
                     break;
 
                 case "010":
                     //Only Rainbow
-                    previewBitmap = FilterBLL.RainbowFilter(previewBitmap);
+                    previewBitmap = Filter.RainbowFilter(previewBitmap);
                     previewBox.Image = previewBitmap;
                     break;
 
                 case "001":
                     //Only Swap
-                    previewBitmap = FilterBLL.Swap(previewBitmap);
+                    previewBitmap = Filter.Swap(previewBitmap);
                     previewBox.Image = previewBitmap;
                     break;
 
                 case "110":
                     //SwapDivide then Rainbow
-                    previewBitmap = FilterBLL.SwapDivide(previewBitmap, 1, 1, 2, 1);
-                    previewBitmap = FilterBLL.RainbowFilter(previewBitmap);
+                    previewBitmap = Filter.SwapDivide(previewBitmap, 1, 1, 2, 1);
+                    previewBitmap = Filter.RainbowFilter(previewBitmap);
                     previewBox.Image = previewBitmap;
                     break;
 
                 case "101":
                     //SwapDivide then Swap
-                    previewBitmap = FilterBLL.SwapDivide(previewBitmap, 1, 1, 2, 1);
-                    previewBitmap = FilterBLL.Swap(previewBitmap);
+                    previewBitmap = Filter.SwapDivide(previewBitmap, 1, 1, 2, 1);
+                    previewBitmap = Filter.Swap(previewBitmap);
                     previewBox.Image = previewBitmap;
                     break;
 
                 case "011":
                     //Rainbow then Swap
-                    previewBitmap = FilterBLL.RainbowFilter(previewBitmap);
-                    previewBitmap = FilterBLL.Swap(previewBitmap);
+                    previewBitmap = Filter.RainbowFilter(previewBitmap);
+                    previewBitmap = Filter.Swap(previewBitmap);
                     previewBox.Image = previewBitmap;
                     break;
 
                 case "111":
-                    previewBitmap = FilterBLL.SwapDivide(previewBitmap, 1, 1, 2, 1);
-                    previewBitmap = FilterBLL.RainbowFilter(previewBitmap);
-                    previewBitmap = FilterBLL.Swap(previewBitmap);
+                    previewBitmap = Filter.SwapDivide(previewBitmap, 1, 1, 2, 1);
+                    previewBitmap = Filter.RainbowFilter(previewBitmap);
+                    previewBitmap = Filter.Swap(previewBitmap);
                     previewBox.Image = previewBitmap;
                     break;
 
@@ -164,12 +164,12 @@ namespace ImageTransformer
         {
             if (radioButtonKirsh.Checked)
             {
-                resultBitmap = EdgeDetectionBLL.KirschFilter(previewBitmap);
+                resultBitmap = EdgeDetection.KirschFilter(previewBitmap);
                 previewBox.Image = resultBitmap;
             }
             else if (radioButtonPrewitt.Checked)
             {
-                resultBitmap = EdgeDetectionBLL.PrewittFilter(previewBitmap);
+                resultBitmap = EdgeDetection.PrewittFilter(previewBitmap);
                 previewBox.Image = resultBitmap;
             }
             else

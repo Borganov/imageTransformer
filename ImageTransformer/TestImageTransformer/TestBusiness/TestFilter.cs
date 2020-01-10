@@ -8,7 +8,7 @@ using NSubstitute;
 namespace TestImageTransformer
 {
     [TestClass]
-    public class TestFilterBLL
+    public class TestFilter
     {
         //Image for test
         Bitmap testImage = new Bitmap(Path.Combine(Environment.CurrentDirectory, @"ImagesForTests\", "octocat.png"));
@@ -18,7 +18,7 @@ namespace TestImageTransformer
         public void TestSwap()
         {
             //Apply filter to the image to test
-            Bitmap toTest = FilterBLL.Swap(testImage);
+            Bitmap toTest = Filter.Swap(testImage);
             //Converte image to test in bytes
             byte[] testImageInBytes = (byte[]) imageConverter.ConvertTo(toTest, typeof(byte[]));
             //True result to compare
@@ -32,7 +32,7 @@ namespace TestImageTransformer
         public void TestRainbowFilter()
         {
             //Apply filter to the image to test
-            Bitmap ToTest = FilterBLL.RainbowFilter(testImage);
+            Bitmap ToTest = Filter.RainbowFilter(testImage);
             //Converte image to test in bytes
             byte[] testImageInBytes = (byte[])imageConverter.ConvertTo(ToTest, typeof(byte[]));
             //True result to compare
@@ -45,7 +45,7 @@ namespace TestImageTransformer
         public void TestSwapDivide()
         {
             //Apply filter to the image to test
-            Bitmap toTest = FilterBLL.SwapDivide(testImage,1,1,2,1);
+            Bitmap toTest = Filter.SwapDivide(testImage,1,1,2,1);
             //Converte image to test in bytes
             byte[] testImageInBytes = (byte[])imageConverter.ConvertTo(toTest, typeof(byte[]));
             //True result to compare

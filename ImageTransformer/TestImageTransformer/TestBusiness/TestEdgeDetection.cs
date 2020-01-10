@@ -8,7 +8,7 @@ using System.IO;
 namespace TestImageTransformer
 {
     [TestClass]
-    public class TestEdgeDetectionBLL
+    public class TestEdgeDetection
     {
         //Image for test
         Bitmap testImage = new Bitmap(Path.Combine(Environment.CurrentDirectory, @"ImagesForTests\", "octocat.png"));
@@ -18,7 +18,7 @@ namespace TestImageTransformer
         public void TestPrewittFilter()
         {
             //Apply filter to the image to test
-            Bitmap toTest = EdgeDetectionBLL.PrewittFilter(testImage);
+            Bitmap toTest = EdgeDetection.PrewittFilter(testImage);
             //Converte image to test in bytes
             byte[] testImageInBytes = (byte[])imageConverter.ConvertTo(toTest, typeof(byte[]));
             //True result to compare
@@ -31,7 +31,7 @@ namespace TestImageTransformer
         public void TestKirschFilter()
         {
             //Apply filter to the image to test
-            Bitmap toTest = EdgeDetectionBLL.KirschFilter(testImage);
+            Bitmap toTest = EdgeDetection.KirschFilter(testImage);
             //Converte image to test in bytes
             byte[] testImageInBytes = (byte[])imageConverter.ConvertTo(toTest, typeof(byte[]));
             //True result to compare

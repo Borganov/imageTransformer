@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ImageTransformer.Business
 {
-    public class FilterBLL
+    public class Filter
     {
         // Swap Filter
         public static Bitmap Swap(Bitmap bmp)

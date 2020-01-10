@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace ImageTransformer.Business
 {
-    public static class EdgeDetectionBLL
+    public static class EdgeDetection
     {
         public static Bitmap ConvolutionFilter(this Bitmap sourceBitmap,
                                                 double[,] xFilterMatrix,
@@ -152,7 +152,7 @@ namespace ImageTransformer.Business
         public static Bitmap PrewittFilter(this Bitmap sourceBitmap,
                                        bool grayscale = true)
         {
-            Bitmap resultBitmap = EdgeDetectionBLL.ConvolutionFilter(sourceBitmap,
+            Bitmap resultBitmap = EdgeDetection.ConvolutionFilter(sourceBitmap,
                                                Matrix.Prewitt3x3Horizontal,
                                                  Matrix.Prewitt3x3Vertical,
                                                         1.0, 0, grayscale);
@@ -163,7 +163,7 @@ namespace ImageTransformer.Business
         public static Bitmap KirschFilter(this Bitmap sourceBitmap,
                                               bool grayscale = true)
         {
-            Bitmap resultBitmap = EdgeDetectionBLL.ConvolutionFilter(sourceBitmap,
+            Bitmap resultBitmap = EdgeDetection.ConvolutionFilter(sourceBitmap,
                                                 Matrix.Kirsch3x3Horizontal,
                                                   Matrix.Kirsch3x3Vertical,
                                                         1.0, 0, grayscale);
