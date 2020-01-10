@@ -14,15 +14,20 @@ namespace ImageTransformer.Business
 
         public Bitmap getImage(IInputOutput iio)
         {
-
             return iio.getImage();
         }
 
 
         public void saveImage(Bitmap img, IInputOutput iio)
         {
-
-            iio.saveImage(img);
+            try
+            {
+                iio.saveImage(img);
+            }catch(Exception e)
+            {
+                throw;
+            }
+            
         }
     }
 }
