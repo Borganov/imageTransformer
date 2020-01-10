@@ -53,5 +53,11 @@ namespace TestImageTransformer
             //Compare bytes in string
             Assert.AreEqual(BitConverter.ToString(testImageInBytes), theoricalResult);
         }
+
+        [TestMethod]
+        public void TestSwapException()
+        {
+
+        }
     }
 }
