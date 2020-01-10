@@ -12,29 +12,20 @@ namespace ImageTransformer.Business
         // Swap Filter
         public static Bitmap Swap(Bitmap bmp)
         {
-            Bitmap temp;
-            try
-            {
-                temp = new Bitmap(bmp.Width, bmp.Height);
 
-                for (int i = 0; i < bmp.Width; i++)
+            Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
+
+            for (int i = 0; i < bmp.Width; i++)
+            {
+                for (int x = 0; x < bmp.Height; x++)
                 {
-                    for (int x = 0; x < bmp.Height; x++)
-                    {
-                        Color c = bmp.GetPixel(i, x);
-                        Color cLayer = Color.FromArgb(c.A, c.G, c.B, c.R);
-                        temp.SetPixel(i, x, cLayer);
-                    }
-
+                    Color c = bmp.GetPixel(i, x);
+                    Color cLayer = Color.FromArgb(c.A, c.G, c.B, c.R);
+                    temp.SetPixel(i, x, cLayer);
                 }
-                
-            }
-            catch(ArgumentNullException e)
-            {
-                //Need to implement logging system
-                throw;
-            }
 
+            }
+                
             return temp;
 
         }
