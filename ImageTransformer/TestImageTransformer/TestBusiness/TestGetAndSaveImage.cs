@@ -51,18 +51,24 @@ namespace TestImageTransformer
         [TestMethod]
         public void TestsaveImageException()
         {
+            //Interface for substitution
             var iInputOutput = Substitute.For<ImageTransformer.IOFiles.IInputOutput>();
+            //Boolean to verify the result
             var exception = true;
+            //Interface when it's called throw exception
             iInputOutput.When(h => h.saveImage(Arg.Any<Bitmap>())).Do(x => throw new Exception());
 
             try
             {
+                //Use the interface in the method to test
                 gasi.saveImage(testImage, iInputOutput);
             }
             catch
             {
+                //if the exception is thrown set the boolean to true
                 exception = true;                
             }
+            //Compare if true
             Assert.IsTrue(exception);
         }
      }
